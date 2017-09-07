@@ -23,7 +23,7 @@ export const dbRoles: { [key: number]: Role } = {
         applicationId: 1,
         name: 'Office administrator',
         users: {
-            1: 1
+            1: 0
         }
     },
     2: {
