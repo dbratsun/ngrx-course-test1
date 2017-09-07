@@ -1,8 +1,8 @@
-import { Application } from '../shared/model/application';
-import { Role } from '../shared/model/role';
-import { User } from "shared/model/user";
+import { IApplication } from '../shared/model/application';
+import { IRole } from '../shared/model/role';
+import { IUser } from "shared/model/user";
 
-export const dbUsers: { [key: number]: User } = {
+export const dbUsers: { [key: number]: IUser } = {
     1: {
         id: 1,
         name: 'Scott'
@@ -17,7 +17,7 @@ export const dbUsers: { [key: number]: User } = {
     }
 }
 
-export const dbRoles: { [key: number]: Role } = {
+export const dbRoles: { [key: number]: IRole } = {
     1: {
         id: 1,
         applicationId: 1,
@@ -46,7 +46,7 @@ export const dbRoles: { [key: number]: Role } = {
 
 }
 
-export const dbApplications: { [key: number]: Application } = {
+export const dbApplications: { [key: number]: IApplication } = {
     1: {
         id: 1,
         name: 'Office',
