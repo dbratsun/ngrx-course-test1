@@ -1,3 +1,6 @@
-<p>
-  role-list works!
-</p>
+<ul class="role-list">
+  <li class="role-list-item" *ngFor="let role of roles" (click)="selectRole(role.id)">
+    <h4 class="role-name">{{role.roleName}}</h4>
+    <div class="role-userNames">{{role.userNames}}</div>
+  </li>
+</ul>

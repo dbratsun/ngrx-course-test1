@@ -1,0 +1,35 @@
+ .test1app {
+    font-family: 'Muli', 'Helvetica Neue', helvetica, arial;
+    max-width: 670px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+/*
+.role-list {
+    border: 1px solid rgba(26, 141, 246, 0.38);
+    border-radius: 4px;
+    font-size: 16px;
+    height: 325px;
+    margin: 0;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.user-section {
+    float: right;
+    width: 265px;
+}
+
+.role-section {
+    float: left;
+    width: 265px;
+}
+
+
+.role-header {
+    height: 40px;
+    margin: 10px 0;
+}
+
+*/

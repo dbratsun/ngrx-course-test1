@@ -40,7 +40,7 @@ export const dbRoles: { [key: number]: IRole } = {
         name: 'Office user',
         users: {
             1: 0,
-            3: 0
+            3: 6
         }
     }
 

@@ -9,31 +9,18 @@ import { UserListComponent } from './user-list/user-list.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RolesService } from "app/services/roles.service";
 import { HttpModule } from "@angular/http";
-import { StoreModule, Action } from '@ngrx/store';
+import { StoreModule, Action, combineReducers } from '@ngrx/store';
 import { INITIAL_APPLICATION_STATE, ApplicationState } from "app/store/application-state";
-import { LOAD_APP_ROLES_ACTION, LoadAppRolesAction } from "app/store/actions";
+import { AppRolesLoadedAction, APP_ROLES_LOADED_ACTION } from "app/store/actions";
 import * as _ from 'lodash';
+import { EffectsModule } from "@ngrx/effects";
+import { LoadRolesEffectService } from "app/store/effects/load-roles-effect.service";
 
-function storeReducer(state: ApplicationState = INITIAL_APPLICATION_STATE, action: Action): ApplicationState {
-  switch (action.type) {
-    case LOAD_APP_ROLES_ACTION: 
-      return handleLoadAppRolesAction(state, action);
-    default:
-      return state;      
-  }
-  
-}
-
-function handleLoadAppRolesAction(state: ApplicationState, action: LoadAppRolesAction): ApplicationState {
-  const userData = action.payload;
-  const newState: ApplicationState = Object.assign({}, state);
-  newState.storeData = {
-    applications: _.keyBy(action.payload.applications, 'id'),
-    roles: _.keyBy(action.payload.roles, 'id'),
-    users: _.keyBy(action.payload.users, 'id')
-  }
-  return newState;
-}
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UiState, INITIAL_UI_STATE } from "app/store/ui-state";
+import { StoreData } from "app/store/store-data";
+import { uiState } from "app/store/reducers/uiStateReducer";
+import { storeData } from "app/store/reducers/uiStoreDataReducer";
 
 @NgModule({
   declarations: [
@@ -48,7 +35,12 @@ function handleLoadAppRolesAction(state: ApplicationState, action: LoadAppRolesA
     BrowserModule,
     HttpModule,
     // StoreModule.forRoot({}, INITIAL_APPLICATION_STATE) - for version 4
-    StoreModule.provideStore(storeReducer)
+    StoreModule.provideStore(combineReducers({
+      uiState: uiState,
+      storeData: storeData
+    }), INITIAL_APPLICATION_STATE),
+    EffectsModule.run(LoadRolesEffectService),
+    StoreDevtoolsModule.instrumentOnlyWithExtension()     // s. lesson 36, 37, 38 
   ],
   providers: [RolesService],
   bootstrap: [AppComponent]
