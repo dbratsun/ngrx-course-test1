@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ApplicationSectionComponent } from './application-section/application-section.component';
+import { ApplicationSelectionComponent } from './application-selection/application-selection.component';
 import { RoleSectionComponent } from './role-section/role-section.component';
 import { UserSectionComponent } from './user-section/user-section.component';
 import { UserListComponent } from './user-list/user-list.component';
@@ -22,10 +22,17 @@ import { StoreData } from "app/store/store-data";
 import { uiState } from "app/store/reducers/uiStateReducer";
 import { storeData } from "app/store/reducers/uiStoreDataReducer";
 
+const reducers = {
+  uiState: uiState,
+  storeData: storeData
+}
+
+const combinedReducer = combineReducers(reducers);
+
 @NgModule({
   declarations: [
     AppComponent,
-    ApplicationSectionComponent,
+    ApplicationSelectionComponent,
     RoleSectionComponent,
     UserSectionComponent,
     UserListComponent,
@@ -35,10 +42,7 @@ import { storeData } from "app/store/reducers/uiStoreDataReducer";
     BrowserModule,
     HttpModule,
     // StoreModule.forRoot({}, INITIAL_APPLICATION_STATE) - for version 4
-    StoreModule.provideStore(combineReducers({
-      uiState: uiState,
-      storeData: storeData
-    }), INITIAL_APPLICATION_STATE),
+    StoreModule.provideStore(combinedReducer, INITIAL_APPLICATION_STATE),
     EffectsModule.run(LoadRolesEffectService),
     StoreDevtoolsModule.instrumentOnlyWithExtension()     // s. lesson 36, 37, 38 
   ],

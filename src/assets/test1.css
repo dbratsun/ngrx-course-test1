@@ -5,6 +5,77 @@
     overflow: hidden;
 }
 
+.role-section {
+    float: left;
+    width: 365px;
+}
+
+.user-section {
+    float: right;
+    width: 265px;
+}
+
+.role-list, .user-list {
+    border: 1px solid rgba(26, 141, 246, 0.38);
+    border-radius: 4px;
+    font-size: 16px;
+    height: 325px;
+    margin: 0;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.role-header {
+    height: 40px;
+    margin: 10px 0;
+}
+
+.user-list-item, .role-list-item {
+    list-style: none;
+    padding: 12px 14px 14px;
+}
+
+.role-list-item {
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.role-list-item.selected {
+    background-color: #1976d2 !important;
+    color: white;
+    font-weight: bold;
+}
+
+.role-list-item.selected .role-name  {
+    color: white;
+    font-weight: bold;
+}
+
+
+.role-list-item.selected:hover {
+    background-color: #1976d2 !important;
+}
+
+.role-name.selected {
+    text-decoration: underline;
+}
+
+.role-list:hover .role-list-item:hover {
+    background-color: #f8f8ff;
+}
+
+.role-list:hover .role-list-item {
+    background-color: #fff;
+}
+
+.role-list-item.active,
+.role-list:hover .role-list-item.active,
+.role-list:hover .role-list-item.active:hover {
+    background-color: #e2e2e2;
+    cursor: default;
+}
+
+
 /*
 .role-list {
     border: 1px solid rgba(26, 141, 246, 0.38);

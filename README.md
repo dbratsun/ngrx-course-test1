@@ -1,6 +1,6 @@
 # Angular University
 
-This project was based on Angular University ngrx-course 
+This project was based on Angular University ngrx-course  - current lesson 42
 
 # NgrxCourseTest1
 

@@ -1,7 +1,10 @@
 <div class="role-section">
+  
   <div class="role-header">
     <span><h3>Application: {{applicationName$ | async}}</h3></span>
     <span>User Count: {{userCount$ | async}}</span>  
   </div>
+
   <role-list [roles]="roleSummaries$ | async" (roleSelected)="onRoleSelected($event)"></role-list>
+
 </div>
