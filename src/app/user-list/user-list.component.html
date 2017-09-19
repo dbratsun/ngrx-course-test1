@@ -1,3 +1,7 @@
-<p>
-  user-list works!
-</p>
+<ul class="user-list">
+  <li class="user-list-item" *ngFor="let user of users">
+    <div class="user-name">{{user.name}}</div>
+    <div class="user-fullName">{{user.fullName}}</div>
+    <div class="user-created">{{user.created | date:'shortDate'}}</div>
+  </li>
+</ul>

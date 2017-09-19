@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RolesService } from "app/services/roles.service";
 import { Store } from "@ngrx/store";
 import { ApplicationState } from "app/store/application-state";
-import { AppRolesLoadedAction, LoadAppRolesAction } from "app/store/actions";
+import { AppRolesLoadedAction, LoadAppRolesAction, RoleSelectedAction } from "app/store/actions";
 import 'rxjs/add/operator/skip';
 import { Observable } from "rxjs/Observable";
 import { IRole } from "shared/model/role";
@@ -100,7 +100,7 @@ export class RoleSectionComponent implements OnInit {
   }
  
   onRoleSelected(selectedRoleId: number) {
-    // this.store.dispatch(new RoleSelectedAction(selectedRoleId));  
+    this.store.dispatch(new RoleSelectedAction(selectedRoleId));  
   }
 
 }

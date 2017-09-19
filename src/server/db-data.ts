@@ -5,15 +5,21 @@ import { IUser } from "shared/model/user";
 export const dbUsers: { [key: number]: IUser } = {
     1: {
         id: 1,
-        name: 'Scott'
+        name: 'Scott',
+        fullName: 'Scott V. Fitzgerald',
+        created: new Date().getTime()
     },
     2: {
         id: 2,
-        name: 'Alice'
+        name: 'Alice',
+        fullName: 'Alice B.',
+        created: new Date().getTime()
     },
     3: {
         id: 3,
-        name: 'Bob'
+        name: 'Bob',
+        fullName: 'Bob Kennedy',
+        created: new Date().getTime()
     }
 }
 

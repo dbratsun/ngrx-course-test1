@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserVM } from "app/user-section/user.vm";
 
 @Component({
   selector: 'user-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
+  @Input()
+  users: UserVM[];
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
 }
